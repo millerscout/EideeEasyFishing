@@ -85,7 +85,11 @@ namespace EideeEasyFishing
 
                 if (Config.BiteFaster && !rod.isNibbling && rod.isFishing && !rod.isReeling && !rod.pullingOutOfWater && !rod.hit)
                 {
-                    rod.timeUntilFishingBite = 0;
+                    if (rod.timeUntilFishingBite > 5000)
+                    {
+                        rod.timeUntilFishingBite = 5000;
+                    }
+
                 }
 
                 if (Config.HitAutomatically && rod.isNibbling && rod.isFishing && !rod.isReeling && !rod.pullingOutOfWater && !rod.hit)
